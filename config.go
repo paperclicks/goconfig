@@ -1,4 +1,4 @@
-package main
+package goconfig
 
 import (
 	"io/ioutil"
