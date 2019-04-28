@@ -61,6 +61,21 @@ func LoadConfig(filename string) (Config, error) {
 	return c, nil
 }
 
+//Unmarshal loads a .yml config file into the out data structure
+func Unmarshal(filename string, out interface{}) error {
+	bytes, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return err
+	}
+
+	err = yaml.Unmarshal(bytes, out)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 //SetValuesAsEnv sets all the values in the config file as ENV variables
 func SetValuesAsEnv(filename string) error {
 
